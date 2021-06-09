@@ -1,0 +1,127 @@
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+// Screen Sizes
+$tablet: 750px;
+
+// Screen mixins
+@mixin tablet {
+	@media (max-width: #{$tablet}) {
+		@content;
+	}
+}
+
+// :root{}
+
+* {
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+	transition: 1s;
+	padding: 0;
+	margin: 0;
+}
+
+.main{
+	flex-direction: column;
+	height: 94.2vh;
+	display: flex;
+
+	.content{
+		overflow-y: scroll;
+		padding: .5em 0;
+		height: 90%;
+	
+		.products{
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			grid-template-rows: auto;
+			place-items: center;
+			padding: 1em 0;
+			display: grid;
+			gap: 1.5em;
+
+			.card{
+				position: relative;
+				.details-actions,
+				img{
+					transition: .3s ease-in-out all;
+					width: 100%;
+				}
+
+				.details-actions{
+					position: absolute;
+					color: #fff;
+					padding: .5em;
+					bottom: 0;
+					left: 0;
+					top: 0;
+					
+					.name{
+						font-weight: bolder;
+					}
+
+					.actions,
+					.price{
+						opacity: 0;
+					}
+
+					.actions{
+						.fas{
+							padding: 0 3px;
+						}
+					}
+				}
+
+				&:hover {
+					.details-actions{
+						background: rgba(0, 0, 0, 0.2);
+					}
+					
+					.actions,
+					.price{
+					  opacity: 1;
+					}
+
+					img {
+						filter: blur(2px);
+					}
+				}
+			}
+		}
+
+		.cart{
+			border: 1px solid;
+			height: 100%;
+		}
+	}
+	
+	.footer{
+		box-shadow: 0 -2px 5px 0 rgb(0 0 0 / 16%), 0 -2px 10px 0 rgb(0 0 0 / 12%);
+		border-top-left-radius: -10px;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		display: flex;
+		padding: 1rem;
+
+		.socials{
+			justify-content: center;
+			display: flex;
+			a{
+				margin-bottom: 10px;
+				border-radius: 50%;
+				margin-right: 10px;
+				padding: .5em .7em;
+				border: 1px solid;
+				font-size: 14px;
+			}
+		}
+	}
+}
+// .navbar{
+// 	background-color: steelblue !important;
+// }
+
+// .navbar .navbar-nav .nav-item a.nav-link,
+// .navbar .navbar-nav .nav-item a.dropdown-item{
+// 	background-color: steelblue !important;
+// }
