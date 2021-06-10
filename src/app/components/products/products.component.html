@@ -1,51 +1,22 @@
 <h1 class="text-center mt-3">Welcome To The Mini Store</h1>
 
 <div class="products">
-	<mdb-card>
-		<img src="https://lh3.googleusercontent.com/proxy/hCyZkmqQ5Gmp75EOtPSzNmbJXGVtd58Em2m8kuC99WtSk1uCdrTiIWQiZ3Vdfzn2REJqKdkI4J_jXYxETJQPE-OHGOAV5tEZyUJw" alt="">
+	<div class="products-product" *ngFor="let product of products">
+		<a routerLink="/product/{{product.id}}">
+			<img class="img-fluid" src={{product.image}} alt="">
+		</a>
 		<div class="details-actions">
-			<h5 class="name">Product name</h5>
-			<h6 class="price">R600.00</h6>
-			<div class="actions">
-				<mdb-icon fas icon="eye"></mdb-icon>
-				<mdb-icon fas icon="cart-plus"></mdb-icon>
-			</div>
+			<h6 class="name"><a routerLink="/product/{{product.id}}">{{product.title}}</a></h6>
+			<h6 class="price">Price: R{{product.price}}</h6>
 		</div>
-	</mdb-card>
+		<div class="actions">
+			<a mdbBtn routerLink="/product/{{product.id}}" style="padding: 1em;" type="button" size="sm" color="default" routerLink="/" mdbWavesEffect>
+				<mdb-icon fas icon="eye"></mdb-icon>
+			</a>
 
-	<mdb-card>
-		<img src="https://lh3.googleusercontent.com/proxy/hCyZkmqQ5Gmp75EOtPSzNmbJXGVtd58Em2m8kuC99WtSk1uCdrTiIWQiZ3Vdfzn2REJqKdkI4J_jXYxETJQPE-OHGOAV5tEZyUJw" alt="">
-		<div class="details-actions">
-			<h5 class="name">Product name</h5>
-			<h6 class="price">R600.00</h6>
-			<div class="actions">
-				<mdb-icon fas icon="eye"></mdb-icon>
-				<mdb-icon fas icon="cart-plus"></mdb-icon>
-			</div>
+			<button mdbBtn style="padding: 1em;" type="button" size="sm" color="default" outline="true" mdbWavesEffect (click)="addToCart(product)">
+				<mdb-icon fas icon="cart-plus" class="mr-1"></mdb-icon>Add To Cart
+			</button>
 		</div>
-	</mdb-card>
-
-	<mdb-card>
-		<img src="https://lh3.googleusercontent.com/proxy/hCyZkmqQ5Gmp75EOtPSzNmbJXGVtd58Em2m8kuC99WtSk1uCdrTiIWQiZ3Vdfzn2REJqKdkI4J_jXYxETJQPE-OHGOAV5tEZyUJw" alt="">
-		<div class="details-actions">
-			<h5 class="name">Product name</h5>
-			<h6 class="price">R600.00</h6>
-			<div class="actions">
-				<mdb-icon fas icon="eye"></mdb-icon>
-				<mdb-icon fas icon="cart-plus"></mdb-icon>
-			</div>
-		</div>
-	</mdb-card>
-
-	<mdb-card>
-		<img src="https://lh3.googleusercontent.com/proxy/hCyZkmqQ5Gmp75EOtPSzNmbJXGVtd58Em2m8kuC99WtSk1uCdrTiIWQiZ3Vdfzn2REJqKdkI4J_jXYxETJQPE-OHGOAV5tEZyUJw" alt="">
-		<div class="details-actions">
-			<h5 class="name">Product name</h5>
-			<h6 class="price">R600.00</h6>
-			<div class="actions">
-				<mdb-icon fas icon="eye"></mdb-icon>
-				<mdb-icon fas icon="cart-plus"></mdb-icon>
-			</div>
-		</div>
-	</mdb-card>
+	</div>
 </div>

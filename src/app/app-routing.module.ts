@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Custom components
 import { ProductsComponent } from './components/products/products.component';
+import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
+	{ path: 'product/:id', component: ProductComponent },
 	{ path: 'cart', component: CartComponent },
   	{ path: '', component: ProductsComponent },
 	{ path: '', pathMatch: 'full', redirectTo: '' },
