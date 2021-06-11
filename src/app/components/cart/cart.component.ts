@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 	products: any[] = [];
 	cart_total: number = 0;
 	cart_total_price: number = 0;
+	product_total_price: number = 0;
 
 	ngOnInit(): void {
 		this.loadData();
@@ -24,6 +25,7 @@ export class CartComponent implements OnInit {
 		this.products = this.__gate.getCartProducts();
 		this.cart_total_price = this.__gate.getCartTotalPrice();
 		this.cart_total = this.__gate.getCartTotalQTY();
+		
 		this.__gate.getProducts();
 	}
 

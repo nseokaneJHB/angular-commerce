@@ -1,23 +1,22 @@
 <div class="cart">
-	<div class="w-100">
-		<a mdbBtn class="mt-4" type="button" color="purple" size="sm" outline="true" routerLink="/" mdbWavesEffect>
+	<div class="w-100 mt-3 d-flex">
+		<a mdbBtn type="button" color="purple" size="sm" outline="true" routerLink="/" mdbWavesEffect>
 			<mdb-icon fas icon="arrow-left" class="mr-1"></mdb-icon>Continue Shopping
+		</a>
+
+		<a mdbBtn type="button" color="success" size="sm" outline="true" routerLink="/checkout" mdbWavesEffect>
+			<mdb-icon fas icon="cart-arrow-down" class="mr-1"></mdb-icon>Checkout
 		</a>
 	</div>
 
 	<mdb-card>
 		<mdb-card-body class="container">
 			<div class="row">
-				<div class="col-sm-4 col-4">
+				<div class="col-sm-6 col-6">
 					<strong>Total Items:</strong> {{cart_total}}
 				</div>
-				<div class="col-sm-5 col-5">
+				<div class="col-sm-6 col-6">
 					<strong>Total Cost:</strong> R{{cart_total_price | number : '1.2-2'}}
-				</div>
-				<div class="col-sm-3 col-3">
-					<a type="button" mdbBtn floating="true" size="sm" color="success" outline="true" class="waves-light" mdbWavesEffect>
-						<mdb-icon fas icon="cart-arrow-down" class="mr-1"></mdb-icon>Checkout
-					</a>
 				</div>
 			</div>
 		</mdb-card-body>
@@ -39,8 +38,8 @@
 		</div>
 	</mdb-card>
 
-	<div class="container">
-		<div class="row" *ngFor="let product of products">
+	<div class="container cart-items">
+		<div class="row border-bottom pt-3" *ngFor="let product of products">
 			<div class="col-4">
 				<a class="cart-product" routerLink="/product/1">
 					<img class="img-fluid" style="max-height: 70px;" src={{product.image}} alt="">
@@ -50,20 +49,20 @@
 			<div class="col-4">
 				<div class="quantity">
 					<span>
-						<button type="button" mdbBtn floating="true" size="sm" color="warning" outline="true" class="waves-light" mdbWavesEffect (click)="decreaseQTY(product)">
+						<button type="button" mdbBtn floating="true" size="sm" color="warning" outline="true" mdbWavesEffect (click)="decreaseQTY(product)">
 							<mdb-icon fas icon="minus"></mdb-icon>
 						</button>
 					</span>
 					<span>{{product.quantity}}</span>
 					<span>
-						<button type="button" mdbBtn floating="true" size="sm" color="success" outline="true" class="waves-light" mdbWavesEffect (click)="increaseQTY(product)">
+						<button type="button" mdbBtn floating="true" size="sm" color="success" outline="true" mdbWavesEffect (click)="increaseQTY(product)">
 							<mdb-icon fas icon="plus"></mdb-icon>
 						</button>
 					</span>
 				</div>
 			</div>
 			<div class="col-4">
-				<span>R{{product.price | number : '1.2-2'}}</span>
+				<span>R{{product.total_cost | number : '1.2-2'}}</span>
 			</div>
 		</div>
 	</div>

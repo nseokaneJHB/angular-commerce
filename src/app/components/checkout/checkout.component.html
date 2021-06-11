@@ -1,0 +1,97 @@
+<div class="checkout">
+	<div class="w-100">
+		<a mdbBtn class="mt-4" type="button" color="purple" size="sm" outline="true" routerLink="/cart" mdbWavesEffect>
+			<mdb-icon fas icon="arrow-left" class="mr-1"></mdb-icon>Back To Cart
+		</a>
+	</div>
+
+	<div class="checkout-details row w-100">
+		<div class="col-md-6">
+			<div class="user-details">
+				<div class="user-info">
+					<h3>User Information:</h3>
+					<div class="row">
+						<div class="col-sm-6 col-12">
+							<div class="md-form">
+								<input mdbInput type="text" class="form-control form-control-sm">
+								<label>Full Name</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-12">
+							<div class="md-form">
+								<input mdbInput type="email" class="form-control form-control-sm">
+								<label>Email</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shipping-address">
+					<h3>Shipping Information:</h3>
+					<div class="row">
+						<div class="col-sm-6 col-12">
+							<div class="md-form">
+								<input mdbInput type="text" class="form-control form-control-sm">
+								<label>Street Address</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-12">
+							<div class="md-form">
+								<input mdbInput type="text" class="form-control form-control-sm">
+								<label>City</label>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6 col-12">
+							<div class="md-form">
+								<input mdbInput type="text" class="form-control form-control-sm">
+								<label>Province</label>
+							</div>
+						</div>
+						<div class="col-sm-6 col-12">
+							<div class="md-form">
+								<input mdbInput type="text" class="form-control form-control-sm">
+								<label>Zip Code</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="payment">
+					<h3>Payment Information:</h3>
+					<div id="paypal-button-container"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 cart-details">
+			<div class="row summary">
+				<div class="col-sm-6 col-12">
+					<h3>Order Summary</h3>
+				</div>
+				<div class="col-sm-6 col-12">
+					<p><strong>Total Items:</strong> {{cart_total}}</p>
+					<p><strong>Total Price:</strong> R{{cart_total_price | number : '1.2-2'}}</p>
+				</div>
+			</div>
+			<div class="items">
+				<a class="row pt-2 pb-2 border-bottom" routerLink="/product/{{product.id}}" *ngFor="let product of products">
+					<div class="col-4">
+						<img class="img-fluid" src={{product.image}} alt="" style="max-width: 80px; max-height: 80px;">
+					</div>
+					<div class="col-4">
+						<h6>{{product.title}}</h6>
+					</div>
+					<div class="col-4">
+						<div class="row">
+							<div class="col-12">
+								<h6>R{{product.total_cost | number : '1.2-2'}}</h6>
+							</div>
+							<div class="col-12">
+								<h6>x{{product.quantity}}</h6>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

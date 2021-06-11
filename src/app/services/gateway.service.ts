@@ -58,6 +58,8 @@ export class GatewayService {
 		this.shopping_cart_items.map(prod => {
 			if (prod.id === product.id) {
 				prod.quantity += 1;
+				prod.total_cost = prod.price * prod.quantity
+				
 				localStorage.setItem('_PRODUCTS_', JSON.stringify(this.shopping_cart_items));
 			}
 
@@ -73,6 +75,8 @@ export class GatewayService {
 				}
 
 				prod.quantity -= 1;
+				prod.total_cost = prod.price * prod.quantity
+				
 				localStorage.setItem('_PRODUCTS_', JSON.stringify(this.shopping_cart_items));
 			}
 
@@ -82,6 +86,8 @@ export class GatewayService {
 
 	cart(product: any){
 		product = {...product, quantity: 1}
+		product = {...product, total_cost: product.price * product.quantity}
+		
 		if (this.shopping_cart_items === null || this.shopping_cart_items < 1) {
 			this.shopping_cart_items = [];
 		}else{

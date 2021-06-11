@@ -1,13 +1,15 @@
 <!--Navbar-->
 <mdb-navbar SideClass="navbar navbar-expand-md navbar-light" [containerInside]="true">
 	<mdb-navbar-brand>
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" routerLink="/">
+			<img class="img-fluid" src="../../../assets/logos/nolan_store_big_logos.png" alt="Mini Store Logo" style="max-width: 100px; max-height: 50px;">
+		</a>
 	</mdb-navbar-brand>
 	<links>
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link active waves-light cart-link" routerLink="cart" mdbWavesEffect>
 				<mdb-icon fas icon="shopping-cart"></mdb-icon>
-				<span class="cart-total">{{cart_total}}</span>
+				<span class="cart-total">{{__gate.getCartTotalQTY()}}</span>
 			</a>
 		</div>
 	</links>

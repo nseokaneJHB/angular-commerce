@@ -5,10 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [
 	{ path: 'product/:id', component: ProductComponent },
+	{ path: 'checkout', component: CheckoutComponent },
 	{ path: 'cart', component: CartComponent },
   	{ path: '', component: ProductsComponent },
 	{ path: '', pathMatch: 'full', redirectTo: '' },
