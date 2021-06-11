@@ -26,6 +26,7 @@ export class CheckoutComponent implements OnInit {
 			value: `${this.__gate.getCartTotalPrice()}`,
 			onApprove: (details) => {
 				alert("Transaction Successful");
+				console.log(details);
 			}
 		});
 
