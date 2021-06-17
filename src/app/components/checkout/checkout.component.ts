@@ -24,7 +24,9 @@ export class CheckoutComponent implements OnInit {
 			currency: "USD",
 			value: `${this.__gate.getCartTotalPrice().toFixed(2)}`,
 			onApprove: (details) => {
+				alert("Transaction Successful!");
 				localStorage.clear();
+				location.href = "/";
 			}
 		});
 
