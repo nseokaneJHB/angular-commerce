@@ -18,12 +18,12 @@ export class ProductsComponent implements OnInit {
 
 	loadData(){
 		this.__gate.getProducts().subscribe((res: any) => {
-			this.products = res
+			this.products = res;
 		})
 	}
 
 	addToCart(product: any){
-		this.__gate.cart(product)
+		this.__gate.cart(product);
 		this.loadData();
 	}
 }

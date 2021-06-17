@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
+
 // Custom components
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';

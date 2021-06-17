@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { GatewayService } from '../../services/gateway.service';
 
-import { paypal, RenderParams } from 'creditcardpayments/creditCardPayments';
 import { render } from 'creditcardpayments/creditCardPayments';
 
 @Component({
@@ -22,11 +21,10 @@ export class CheckoutComponent implements OnInit {
 	ngOnInit(): void {
 		render({
 			id: "#paypal-button-container",
-			currency: "ZAR",
-			value: `${this.__gate.getCartTotalPrice()}`,
+			currency: "USD",
+			value: `${this.__gate.getCartTotalPrice().toFixed(2)}`,
 			onApprove: (details) => {
-				alert("Transaction Successful");
-				console.log(details);
+				localStorage.clear();
 			}
 		});
 

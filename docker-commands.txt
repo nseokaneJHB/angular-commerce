@@ -1,0 +1,2 @@
+docker build --tag nolan-mini-store .
+docker run --publish 4000:4000 nolan-mini-store
